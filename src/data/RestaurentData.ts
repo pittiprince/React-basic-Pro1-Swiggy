@@ -1,5 +1,5 @@
 
-export const restaurants:any= [
+export const restaurants= [
     {
     "info": {
         "id": "340849",

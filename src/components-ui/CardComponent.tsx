@@ -1,8 +1,16 @@
 interface ResObject {
+
   name: string;
   cloudinaryImageId: string;
-  slaString: string ;
-  cuisines: [string];
+  sla: {
+    deliveryTime: number;
+    lastMileTravel: number;
+    serviceability: string;
+    slaString: string;
+    lastMileTravelString: string;
+    iconType: string;
+}
+  cuisines: string[];
   areaName: string;
   avgRatingString: string;
 }
@@ -12,9 +20,10 @@ interface CardComponentProps {
 }
 
 export const CardComponent = ({ resObject }: CardComponentProps) => {
-  const { name, cloudinaryImageId, slaString, cuisines, areaName, avgRatingString } = resObject;
+  const { name, cloudinaryImageId,  cuisines, areaName, avgRatingString, sla } = resObject;
+  const { slaString } = sla;
   return (
-    <div className="w-[15rem] h-[27rem] hover:scale-95 transition-all hover:ease-in-out overflow-hidden " id="CardContainer">
+    <div className="w-[15rem] h-[28rem] hover:scale-95 transition-all hover:ease-in-out overflow-hidden " id="CardContainer">
       <div className="h-2/3">
         <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} alt="Biryani Image" className="w-full h-full object-cover rounded-3xl" />
       </div>
